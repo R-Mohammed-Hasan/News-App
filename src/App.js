@@ -10,7 +10,7 @@ export default class extends Component {
     return (
       <div>
         <Navbar />
-        <News />
+        <News pageCount="9" />
       </div>
     )
   }

@@ -8,3 +8,47 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.mask {
+    cursor: pointer;
+    text-align: center;
+}
+
+.loading-container {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-container::after {
+    content: "Loading . . .";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.loading-container img {
+    max-width: 40%;
+    min-height: 70%;
+}
+
+@media (max-width: 768px) {
+    .loading-container::after {
+        font-size: 20px;
+    }
+    .loading-container img {
+        max-width: 90%;
+        height: auto;
+    }
+}
