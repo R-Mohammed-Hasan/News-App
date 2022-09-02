@@ -43,6 +43,10 @@ code {
     min-height: 70%;
 }
 
+.navbar-nav {
+    column-gap: 3%;
+}
+
 @media (max-width: 768px) {
     .loading-container::after {
         font-size: 20px;
