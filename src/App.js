@@ -12,19 +12,19 @@ export default class extends Component {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<News pageCount={9} country="in" category="general"/>}>
+            <Route path="/" element={<News key="general" pageCount={9} country="in" category="general"/>}>
             </Route>
-            <Route path="/health" element={<News pageCount={9} country="in" category="health"/>}>
+            <Route path="/health" element={<News key="health" pageCount={9} country="in" category="health"/>}>
             </Route>
-            <Route path="/entertainment" element={<News pageCount={9} country="in" category="entertainment"/>}>
+            <Route path="/entertainment" element={<News key="entertainment" pageCount={9} country="in" category="entertainment"/>}>
             </Route>
-            <Route path="/sports" element={<News pageCount={9} country="in" category="sports"/>}>
+            <Route path="/sports" element={<News key="sports" pageCount={9} country="in" category="sports"/>}>
             </Route>
-            <Route path="/business" element={<News pageCount={9} country="in" category="business"/>}>
+            <Route path="/business" element={<News key="business" pageCount={9} country="in" category="business"/>}>
             </Route>
-            <Route path="/science" element={<News pageCount={9} country="in" category="science"/>}>
+            <Route path="/science" element={<News key="science" pageCount={9} country="in" category="science"/>}>
             </Route>
-            <Route path="/technology" element={<News pageCount={9} country="in" category="technology"/>}>
+            <Route path="/technology" element={<News key="technology" pageCount={9} country="in" category="technology"/>}>
             </Route>
           </Routes>
 

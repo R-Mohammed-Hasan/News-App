@@ -47,6 +47,11 @@ code {
     column-gap: 3%;
 }
 
+.published-time {
+    font-size: 14px;
+    color: grey;
+}
+
 @media (max-width: 768px) {
     .loading-container::after {
         font-size: 20px;

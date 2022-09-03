@@ -18,15 +18,14 @@ News extends Component {
     category: PropTypes.string
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       loading: false,
       page: 1
     }
   }
-
 
   render() {
     return (
@@ -38,8 +37,9 @@ News extends Component {
            return (<div className="col-md-4" key={index}>
                     <NewsItem url={element.url} title={element.title ? element.title.slice(0,60)+ "..." : "No title"}
                      description={element.description ? element.description.slice(0,150) + "..." : "No description"}
-                     publishedAt={new Date(element.publishedAt).toDateString()}
-                     imageUrl={element.urlToImage ? element.urlToImage : "https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp"} />
+                     publishedAt={new Date(element.publishedAt).toGMTString()}
+                     imageUrl={element.urlToImage ? element.urlToImage : "https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp"}
+                     source={element.source.name ? element.source.name : "Not available"} />
                 </div>)
           })
           }
@@ -62,7 +62,7 @@ News extends Component {
     if(oldDateArray[2] <= 0){
       oldDateArray[1] -= 1;
       oldDateArray[2] = 30;
-      console.log(oldDateArray[2] <= 0);
+      // console.log(oldDateArray[2] <= 0);
     }
     console.log(oldDateArray);
     let data = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&page=${this.state.page}&pageSize=${this.props.pageCount}&from=${oldDateArray.join("-")}`,{
