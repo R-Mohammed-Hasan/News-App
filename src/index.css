@@ -43,6 +43,10 @@ code {
     min-height: 70%;
 }
 
+.loading img {
+    width: 10%;
+}
+
 .navbar-nav {
     column-gap: 3%;
 }
@@ -63,5 +67,9 @@ code {
     .loading-container img {
         max-width: 90%;
         height: auto;
+    }
+    .loading img {
+        width: 30%;
+        margin: 5% 0%;
     }
 }
