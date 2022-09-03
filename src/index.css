@@ -52,6 +52,10 @@ code {
     color: grey;
 }
 
+.rounded-pill {
+    z-index: 1000;
+}
+
 @media (max-width: 768px) {
     .loading-container::after {
         font-size: 20px;
