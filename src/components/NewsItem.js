@@ -1,12 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class NewsItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    let { title, description, url, imageUrl,source,publishedAt } = this.props;
+export function NewsItem(props) {
+    let { title, description, url, imageUrl,source,publishedAt } = props;
     return (
       <div>
         <div className="card m-lg-3">
@@ -44,7 +39,6 @@ export class NewsItem extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default NewsItem;

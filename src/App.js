@@ -8,110 +8,106 @@ import {
   Routes,
   NavLink,
 } from "react-router-dom";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import LoadingBar from "react-top-loading-bar";
 
-export default class extends Component {
+export default function() {
 
-  state = {
-    progress: 0
+  const [progress, setProgress] = useState(0);
+
+  const updateProgress = (progress) => {
+    setProgress(progress);
   }
 
-  setProgress = (progress) => {
-    this.setState({progress: progress});
-  }
-
-  render() {
-    return (
-      <div>
-        <LoadingBar
-          loaderSpeed={1000}
-          color="aqua"
-          progress={this.state.progress}
-        />
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <News setProgress={this.setProgress}
-                  key="general"
-                  pageCount={9}
-                  country="in"
-                  category="general"
-                />
-              }
-            ></Route>
-            <Route
-              path="/health"
-              element={
-                <News setProgress={this.setProgress}
-                  key="health"
-                  pageCount={9}
-                  country="in"
-                  category="health"
-                />
-              }
-            ></Route>
-            <Route
-              path="/entertainment"
-              element={
-                <News setProgress={this.setProgress}
-                  key="entertainment"
-                  pageCount={9}
-                  country="in"
-                  category="entertainment"
-                />
-              }
-            ></Route>
-            <Route
-              path="/sports"
-              element={
-                <News setProgress={this.setProgress}
-                  key="sports"
-                  pageCount={9}
-                  country="in"
-                  category="sports"
-                />
-              }
-            ></Route>
-            <Route
-              path="/business"
-              element={
-                <News setProgress={this.setProgress}
-                  key="business"
-                  pageCount={9}
-                  country="in"
-                  category="business"
-                />
-              }
-            ></Route>
-            <Route
-              path="/science"
-              element={
-                <News setProgress={this.setProgress}
-                  key="science"
-                  pageCount={9}
-                  country="in"
-                  category="science"
-                />
-              }
-            ></Route>
-            <Route
-              path="/technology"
-              element={
-                <News setProgress={this.setProgress}
-                  key="technology"
-                  pageCount={9}
-                  country="in"
-                  category="technology"
-                />
-              }
-            ></Route>
-          </Routes>
-        </Router>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <LoadingBar
+        loaderSpeed={1000}
+        color="aqua"
+        progress={progress}
+      />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <News setProgress={updateProgress}
+                key="general"
+                pageCount={9}
+                country="in"
+                category="general"
+              />
+            }
+          ></Route>
+          <Route
+            path="/health"
+            element={
+              <News setProgress={updateProgress}
+                key="health"
+                pageCount={9}
+                country="in"
+                category="health"
+              />
+            }
+          ></Route>
+          <Route
+            path="/entertainment"
+            element={
+              <News setProgress={updateProgress}
+                key="entertainment"
+                pageCount={9}
+                country="in"
+                category="entertainment"
+              />
+            }
+          ></Route>
+          <Route
+            path="/sports"
+            element={
+              <News setProgress={updateProgress}
+                key="sports"
+                pageCount={9}
+                country="in"
+                category="sports"
+              />
+            }
+          ></Route>
+          <Route
+            path="/business"
+            element={
+              <News setProgress={updateProgress}
+                key="business"
+                pageCount={9}
+                country="in"
+                category="business"
+              />
+            }
+          ></Route>
+          <Route
+            path="/science"
+            element={
+              <News setProgress={updateProgress}
+                key="science"
+                pageCount={9}
+                country="in"
+                category="science"
+              />
+            }
+          ></Route>
+          <Route
+            path="/technology"
+            element={
+              <News setProgress={updateProgress}
+                key="technology"
+                pageCount={9}
+                country="in"
+                category="technology"
+              />
+            }
+          ></Route>
+        </Routes>
+      </Router>
+    </div>
+  );
 }
