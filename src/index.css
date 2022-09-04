@@ -58,6 +58,7 @@ code {
 
 .rounded-pill {
     z-index: 1000;
+    left: 100%;
 }
 
 @media (max-width: 768px) {
@@ -71,5 +72,8 @@ code {
     .loading img {
         width: 30%;
         margin: 5% 0%;
+    }
+    .rounded-pill {
+        left: 50%;
     }
 }

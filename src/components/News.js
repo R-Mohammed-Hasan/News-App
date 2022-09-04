@@ -129,6 +129,7 @@ export default class News extends Component {
   };
 
   async updateNews() {
+    this.props.setProgress(7);
     this.setState({ loading: true });
     let data = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&page=${this.state.page}&pageSize=${this.props.pageCount}`,
       {
@@ -137,12 +138,14 @@ export default class News extends Component {
           Authorization: "0bea793f263d481e9e402b7ebb448641",
         },
       });
+    this.props.setProgress(60);
     let parsedData = await data.json();
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
       loading: false,
     });
+    this.props.setProgress(100);
   }
   // This executes after rendering the component
   async componentDidMount() {
