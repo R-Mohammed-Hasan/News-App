@@ -122,15 +122,14 @@ export default function News(props) {
                   />
                 </div>
               );
-            }
-          )
+            })
         }
 
         {articles.length >= totalResults &&
-                    <p className="seen-all">
-                      <b>Yay! You have seen it all</b>
-                    </p>
-                  }
+          <p className="seen-all">
+            <b>Yay! You have seen it all</b>
+          </p>
+        }
           </div>
         </div>
       </InfiniteScroll>

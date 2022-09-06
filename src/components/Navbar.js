@@ -2,6 +2,16 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Navbar(){
+
+  async function sendRequest(event){
+    event.preventDefault();
+    let input = document.getElementById("input").value;
+    console.log(input);
+    let url = `https://newsapi.org/v2/everything?q=${input}&apiKey=${process.env.REACT_APP_API_KEY}`;
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    console.log(parsedData.articles);
+  }
     return (
       <div>
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-3">
@@ -48,8 +58,8 @@ export default function Navbar(){
                     <Link className="nav-link" to="/technology">Technology</Link>
                   </li>
                 </ul>
-                <form className="d-flex">
-                  <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <form className="d-flex" onSubmit={sendRequest} >
+                  <input className="form-control me-2" type="search" id="input" placeholder="Search" aria-label="Search" />
                   <button className="btn btn-outline-light" type="submit">Search</button>
                 </form>
               </div>
