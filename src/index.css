@@ -61,6 +61,16 @@ code {
     left: 100%;
 }
 
+.heading {
+    margin-top: 7%;
+}
+
+.seen-all {
+    margin-top: 5%;
+    text-align: center;
+    font-size: 23px;
+}
+
 @media (max-width: 768px) {
     .loading-container::after {
         font-size: 20px;
@@ -75,5 +85,15 @@ code {
     }
     .rounded-pill {
         left: 50%;
+    }
+    .heading {
+        margin-top: 30%;
+    }
+    .row>div {
+        margin-top: 2%;
+    }
+    .seen-all {
+        margin-top: 10%;
+        font-size: 18px;
     }
 }

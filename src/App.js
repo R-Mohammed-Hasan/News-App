@@ -6,7 +6,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  NavLink,
 } from "react-router-dom";
 import React, { useState } from "react";
 import LoadingBar from "react-top-loading-bar";

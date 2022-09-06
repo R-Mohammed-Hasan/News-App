@@ -10,6 +10,7 @@ export default function News(props) {
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [totalResults, setTotalResults] = useState(0);
+    const apiKey = process.env.REACT_APP_API_KEY;
 
 
 
@@ -19,7 +20,7 @@ export default function News(props) {
       {
         method: "GET",
         headers: {
-          Authorization: "0bea793f263d481e9e402b7ebb448641",
+          Authorization: apiKey,
         },
       }
     );
@@ -38,7 +39,7 @@ export default function News(props) {
     }`;
     updateNews();
     /* eslint-disable-next-line */
-  });
+  },[]);
 
   const updateNews = async ()=> {
     props.setProgress(7);
@@ -46,7 +47,7 @@ export default function News(props) {
       {
         method: "GET",
         headers: {
-          Authorization: "0bea793f263d481e9e402b7ebb448641",
+          Authorization: apiKey,
         },
       });
     setLoading(true);
@@ -56,6 +57,8 @@ export default function News(props) {
     setTotalResults(parsedData.totalResults);
     setLoading(false);
     props.setProgress(100);
+    console.log(articles.length);
+    console.log(totalResults);
   }
 
 
@@ -80,7 +83,7 @@ export default function News(props) {
 
   return (
     <>
-      <h1 className="text-center my-5">Top Headlines of India</h1>
+      <h1 className="text-center heading">Top Headlines of India</h1>
       { loading && <Loading /> }
       <InfiniteScroll
         dataLength={articles.length}
@@ -117,16 +120,17 @@ export default function News(props) {
                         : "Not available"
                     }
                   />
-                  {articles.length >= totalResults &&
-                    <p style={{ textAlign: 'center' }}>
-                      <b>Yay! You have seen it all</b>
-                    </p>
-                  }
                 </div>
               );
             }
           )
         }
+
+        {articles.length >= totalResults &&
+                    <p className="seen-all">
+                      <b>Yay! You have seen it all</b>
+                    </p>
+                  }
           </div>
         </div>
       </InfiniteScroll>
